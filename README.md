@@ -1,5 +1,6 @@
 # Pin description
 ![Pin Description](assets/ESP8266PinOut.png)
+
 Note:
 * GPIO0 needs to be GND on startup to enable programming.
 * RST needs to be connected to high with a 10kΩ pullup resistor
