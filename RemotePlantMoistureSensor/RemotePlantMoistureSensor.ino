@@ -3,7 +3,7 @@
 
 void setup() {
   // put your setup code here, to run once:
-  Serial.begin(115200);
+  Serial.begin(9600);
   Serial.println("\nRemote Plant Moisture sensor v0");
 
   WiFi.begin("MOTO7466", "zpzdf2evu9");
