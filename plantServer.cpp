@@ -34,19 +34,19 @@ int main(){
     unsigned int client_sock_len;
 
     int new_sock = accept(socket_fd, (struct sockaddr*)&client, &client_sock_len);
-    char buffer[256];
 
     //Reading the data from the connection
+    char buffer[256];
     if(read(new_sock, buffer, 255) < 0){
         perror("read");
         exit(EXIT_FAILURE);
     }
     buffer[256] = '\0';
     printf(buffer);
-
+    
     //Writing a return message to the connection
-    char return_message[256] = "This is a return message to the esp8266"; 
-    if(write(new_sock, return_message, 256) < 0){
+    char return_message[7] = "Hello\0"; 
+    if(write(new_sock, return_message, sizeof(return_message)) < 0){
         perror("write");
         exit(EXIT_FAILURE);
     }

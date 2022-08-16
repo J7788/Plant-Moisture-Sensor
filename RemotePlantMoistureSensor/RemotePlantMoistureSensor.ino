@@ -26,15 +26,15 @@ void setup() {
   Serial.println("Attemping Connection to main computer now...");
   if (client.connect(ip, 1492)) {
     Serial.println("Connected!");
-    client.println("This is a test coming from an esp8266. Your moms a hoe");
+    client.println("This is a test coming from an esp8266. Your moms a hoe\n");
     Serial.println("Message sent. Waiting on response...");
     byte next_byte;
-    while(next_byte = client.read()){
+    while(client.available() > 0){
       Serial.print(next_byte);
     }
     Serial.println();
-    buffer[256] = '\0';
-    Serial.println(buffer);
+//    buffer[256] = '\0';
+//    Serial.println(buffer);
     client.stop();
     Serial.print("Connection closed");
   }
